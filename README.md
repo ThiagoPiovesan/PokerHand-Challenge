@@ -17,7 +17,7 @@
 - **Option 2**
     - 👯 Clone this repo: 
     ```
-    $ git clone 
+    $ git clone https://github.com/ThiagoPiovesan/PokerHand-Challenge.git
     ```
 
 - **Enjoy it!**
