@@ -1,7 +1,7 @@
 # /*==========================================================*\
 # |      /=============================================\       |
-# |     ||  -  Code develop to compare two hands at  - ||      |
-# |     ||  - poker game and print who is the winner - ||      |
+# |     ||  - Code develop to shuffle the cards that - ||      |
+# |     ||  -      will be used for the players      - ||      |
 # |     ||  -         Desafio Python - DATA H        - ||      |
 # |     ||  -       Created by: Thiago Piovesan      - ||      |
 # |     ||  -          Versao atual: 1.0.0           - ||      |
@@ -12,21 +12,20 @@
 
 #==================================================================================================#
 """
-Poker hand compare system.    
+shuffle and show cards   
 """
 from array import array
 
 
-class PokerHand():
-
-    def __init__(self, hand) -> None:
+class CardsPack():
+    def __init__(self, card) -> None:
         
-        self.hand = hand
+        self.card = card
   
-    def compare_with() -> bool:
-        """Check between two poker's hand who is the winner"""
+    def shuffle_cards() -> str:
+        """shuffle the ranks and cards to give the combination"""
         raise NotImplementedError()
-
-    def broke_string() -> array:
-        """Broke the input string into 5 pairs to make the comparation"""
-        raise NotImplementedError()
+        
+    # def show_cards() -> str:
+    #     """Give the cards for the oponnents"""
+    #     raise NotImplementedError()

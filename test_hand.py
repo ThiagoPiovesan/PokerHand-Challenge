@@ -1,5 +1,5 @@
 """
-Hand class testes.    
+Hand class tests.    
 """
 from ctypes import sizeof
 import unittest
