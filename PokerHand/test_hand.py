@@ -1,6 +1,9 @@
 """
 Hand class tests.    
 """
+#==================================================================================================#
+# Bibliotecas utilizadas:
+
 from ctypes import sizeof
 import unittest
 from PokerHand import PokerHand

@@ -14,6 +14,9 @@
 """
 Poker hand compare system.    
 """
+#==================================================================================================#
+# Bibliotecas utilizadas:
+
 from array import array
 
 
