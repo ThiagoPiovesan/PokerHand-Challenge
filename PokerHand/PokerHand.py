@@ -26,10 +26,16 @@ class PokerHand():
         
         self.hand = hand
   
-    def compare_with() -> bool:
+    def compare_with(self) -> bool:
         """Check between two poker's hand who is the winner"""
         raise NotImplementedError()
 
-    def broke_string() -> array:
+    def broke_string(self) -> array:
         """Broke the input string into 5 pairs to make the comparation"""
         raise NotImplementedError()
+    
+    def getCard_and_Rank(self) -> str:
+        """Broke the card string into what card is and the rank"""
+        raise NotImplementedError()
+    
+    

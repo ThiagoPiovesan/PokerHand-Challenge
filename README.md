@@ -1,9 +1,24 @@
 # Poker hand Rank:
 ---
-## Concepts used
+## Concepts used:
 - TDD;
 - SOLID;
-- Design Patterns
+- Design Patterns.
+
+---
+
+## Objective:
+The main purpose of these is to compare two poker hands and print who is the winner. Very simple, right?
+No, actually we want to show the usability of the concepts shown earlier and apply then into a simple problem.
+So, let's get it started!
+
+---
+
+## How does it work?
+Using the main.py program, we give "two poker hands" as input. Like this:
+
+- hand1 = "9C 9H 5C 5H AC"
+- hand2 = "TC TH 5C 5H KH"
 
 ---
 
