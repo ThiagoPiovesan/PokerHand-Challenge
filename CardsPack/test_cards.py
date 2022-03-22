@@ -6,56 +6,36 @@ Cards pack tests.
 
 from ctypes import sizeof
 import unittest
-from CardsPack import CardsPack
+from OrganizeCards import OrganizeCards
 
 CARDS: str = "KS 2H 5C JD TD"
 
-class TestCardsPackFunctions(unittest.TestCase):
+class TestOrganizeCardsFunctions(unittest.TestCase):
     """Test if the cards are been choosen correctly and the pack is shuffled """
     
     def setUp(self):
         """Set up test fixtures."""
         
-        self.cardsTest = CardsPack()
-        
-    def test_CardsPack_shuffle_cards_returns_a_bool(self):
-        """Whether shuffle_cards returns a string"""    
-        self.assertIsInstance(self.cardsTest.shuffle_cards(), str)
-        
-    def test_CardsPack_shuffle_cards_none_cards(self):
-        """Whether shuffle_cards is empty"""  
-        self.assertIsNotNone(self.cardsTest.shuffle_cards(), "Has no pair to check!")
-        
-    def test_CardsPack_shuffle_cards_has_5_cards(self):
-        """Whether shuffle_cards doesn't have 5 cards"""
-        self.assertEqual(len(self.cardsTest.shuffle_cards()), 5, "There are some cards missing!")
-#================================================================================#    
-    def test_CardsPack_remove_cards_returns_a_str(self):
-        """Whether remove_cards returns a string"""    
-        self.assertIsInstance(self.cardsTest.remove_cards(), str)
-        
-    def test_CardsPack_remove_cards_none_cards(self):
-        """Whether remove_cards is empty"""  
-        self.assertIsNotNone(self.cardsTest.remove_cards(), "There are no cards!")
-#================================================================================#
-    def test_CardsPack_choose_rank_returns_a_str(self):
-        """Whether choose_rank returns a string"""    
-        self.assertIsInstance(self.cardsTest.choose_rank(), str)
-        
-    def test_CardsPack_choose_rank_none_cards(self):
-        """Whether choose_rank is empty"""  
-        self.assertIsNotNone(self.cardsTest.choose_rank(), "There are no rank!")
-#================================================================================#
-    def test_CardsPack_choose_cards_returns_a_str(self):
-        """Whether choose_cards returns a string"""    
-        self.assertIsInstance(self.cardsTest.choose_card(), str)
-        
-    def test_CardsPack_choose_cards_none_cards(self):
-        """Whether choose_cards is empty"""  
-        self.assertIsNotNone(self.cardsTest.choose_card(), "There are no card!")
+        self.cardsTest = OrganizeCards(CARDS)
+
+    #=================================================================================#        
+    def test_OrganizeCards_broke_string_returns_an_array(self):
+        """Whether broke_string is empty"""
+        self.assertIsNotNone(self.cardsTest.broke_string(), "Has no pair to check!")
     
-    # handOne = PokerHand(CARDS)    
-    # print(len(handOne.hand))
+    def test_OrganizeCards_broke_string_has_5_pairs(self):
+        """Whether broke_string doesn't have 5 pairs"""
+        self.assertEqual(len(self.cardsTest.broke_string()), 5, "There are some pairs missing!")
+#=================================================================================#        
+    def test_OrganizeCards_getCard_and_Rank_returns_an_str(self):
+        """Whether broke_string is empty"""
+        self.assertIsNotNone(self.cardsTest.getCard_and_Rank(), "Has no pair to check!")
+    
+    def test_OrganizeCards_getCard_and_Rank_has_2_itens(self):
+        """Whether broke_string doesn't have 5 pairs"""
+        self.assertEqual(len(self.cardsTest.getCard_and_Rank()), 2, "There are some pairs missing!")
+
+
     
     # teste = ['AB', 'AB', 'AB', 'AB']  
     # print(len(teste))

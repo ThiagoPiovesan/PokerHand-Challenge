@@ -25,17 +25,23 @@ CARDS: str = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
 #==================================================================================================#
 # Main function
 def calc_score(hand):
-    String2: str = "9C 9H 5C 5H AC"
     
     card_ranks_original = '23456789TJQKA'
     original_suits = 'CDHS'
     
-    rcounts = {card_ranks_original.find(r): ''.join(hand).count(r) for r, _ in hand}.items()
+    rcounts = {card_ranks_original.find(r): ''.join(hand).count(r) for r, _ in hand}.items()    
+    print(rcounts)
     score, card_ranks = zip(*sorted((cnt, rank) for rank, cnt in rcounts)[::-1])
 
+    print(score)
+    print(card_ranks)
+    
+    print("=====================================================\n")
+    
     potential_threeofakind = score[0] == 3
-    potential_twopair = score == (2, 2, 1, 1, 1)
-    potential_pair = score == (2, 1, 1, 1, 1, 1)
+    potential_twopair = score == (2, 2, 1)
+    potential_pair = score == (2, 1, 1)
+
 
     if score[0:2] == (3, 2) or score[0:2] == (3, 3):  # fullhouse (three of a kind and pair, or two three of a kind)
         card_ranks = (card_ranks[0], card_ranks[1])
@@ -151,7 +157,19 @@ if __name__ == '__main__':
     # CARDS.remove(CARDS[random.randint(0, len(CARDS)-1)])
     
     # print(CARDS)
-    hand: str = ["TC", "TH", "5C", "5H", "KH"]
+    hand: str = ["TC", "TH", "5D", "5H", "AH"]
     
     print(calc_score(hand))
+    
+    hand2: str = "9C 9H 5C 5H AC"
+
+    hand2 = hand2.split(" ")
+    
+    card_ranks_original = '23456789TJQKA'
+    original_suits = 'CDHS'
+    
+    rcounts = {card_ranks_original.find(r): ''.join(hand2).count(r) for r, _ in hand2}.items()
+
+    score, card_ranks = zip(*sorted((cnt, rank) for rank, cnt in rcounts)[::-1])
+
     
