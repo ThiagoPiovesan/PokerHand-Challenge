@@ -24,7 +24,9 @@ Using the main.py program, we give "two poker hands" as input. Like this:
 
 ## A little of theory and concepts included (You can skip if you want to):
 
-### SOLID Concept:
+<details>
+  <summary>SOLID Concept</summary>
+  
 #### # Single responsibility principle:
 → Make things (classes, functions, etc.) responsible for fulfilling one type of role.
 —> **e.g**. Refactor code responsibilities into separate classes.
@@ -45,9 +47,13 @@ Using the main.py program, we give "two poker hands" as input. Like this:
 → Make classes depend on abstract classes rather than non-abstract classes.
 —> **e.g**. Make classes inherit from abstract classes.
 
+</details>
+
 ---
 
-### TDD (Test-Driven Develop):
+<details>
+  <summary>TDD (Test-Driven Develop)</summary>
+  
 → “**Write the test, before write de actual code”**.
 
 ---
@@ -73,12 +79,14 @@ Using the main.py program, we give "two poker hands" as input. Like this:
 
 ---                              
 
-                                                    **RED → GREEN → REFACTOR**
+                                     **RED → GREEN → REFACTOR**
 
 ---
 
 → Don’t use global instances, that way a test can’t interfere on the other
 → Don’t tests python standard library stuff, it is expected to work correctly.
+
+</details>
 
 ---
 ## Thanks for the read & I hope you enjoy it!

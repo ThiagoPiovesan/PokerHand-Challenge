@@ -6,7 +6,7 @@ Cards pack tests.
 
 from ctypes import sizeof
 import unittest
-from OrganizeCards import OrganizeCards
+from CardsControl import OrganizeCards
 
 CARDS: str = "KS 2H 5C JD TD"
 
