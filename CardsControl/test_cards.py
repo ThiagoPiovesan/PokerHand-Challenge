@@ -35,10 +35,6 @@ class TestOrganizeCardsFunctions(unittest.TestCase):
         """Whether broke_string doesn't have 5 pairs"""
         self.assertEqual(len(self.cardsTest.getCard_and_Rank()), 2, "There are some pairs missing!")
 
-
-    
-    # teste = ['AB', 'AB', 'AB', 'AB']  
-    # print(len(teste))
     
 if __name__ == "__main__":
     unittest.main()

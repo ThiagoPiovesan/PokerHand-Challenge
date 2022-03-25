@@ -25,16 +25,21 @@ class TestPokerHandCompareWith(unittest.TestCase):
         """Whether compare_with is empty"""  
         self.assertIsNotNone(self.handTest.compare_with(), "Has no pair to check!")
         
-    def test_PokerHand_compare_with_has_5_pairs(self):
-        """Whether compare_with doesn't have 5 pairs"""
-        self.assertEqual(len(self.handTest.compare_with()), 14, "There are some pairs missing!")
+#=================================================================================#
+    def test_PokerHand_evaluate_cards_returns_a_dict(self):
+        """Whether evaluate_cards returns a dict"""  
+        self.assertIsInstance(self.handTest.evaluate_cards(), None)
+    def test_PokerHand_evaluate_cards_none_cards(self):
+        """Whether evaluate_cards is empty"""  
+        self.assertIsNone(self.handTest.evaluate_cards(), "Has no pair to check!")
+#=================================================================================#
+    def test_PokerHand_give_score_returns_a_string(self):
+        """Whether give_score returns a string"""  
+        self.assertIsInstance(self.handTest.give_score(), str)
+    def test_PokerHand_give_score_none_cards(self):
+        """Whether give_score is empty"""  
+        self.assertIsNotNone(self.handTest.give_score(), "Has no pair to check!")
+#=================================================================================#
 
-    
-    # handOne = PokerHand(CARDS)    
-    # print(len(handOne.hand))
-    
-    # teste = ['AB', 'AB', 'AB', 'AB']  
-    # print(len(teste))
-    
 if __name__ == "__main__":
     unittest.main()
