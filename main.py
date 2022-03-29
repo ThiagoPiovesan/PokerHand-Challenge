@@ -85,10 +85,16 @@ def calc_score(hand):
             if 12 in card_ranks and -1 not in card_ranks:  # adjust if 5 high straight
                 card_ranks += (-1,)
             for i in range(len(card_ranks) - 4):
+                
                 straight = card_ranks[i] - card_ranks[i + 4] == 4
-                if straight:
+                
+                if straight and card_ranks[i] == 12:
+                    royal = True
                     break
-
+                else:
+                    break
+        
+        print(card_ranks)
         # no pair, straight, flush, or straight flush
         score = ([(1,), (3, 1, 2)], [(3, 1, 3), (5,)])[flush][straight]
 
@@ -99,7 +105,9 @@ def calc_score(hand):
     elif score == (1,) and potential_pair:
         score = (2, 1, 1)
 
-    if score[0] == 5:
+    if score[0] == 5 and royal:
+        hand_type = "RoyalFlush"
+    elif score[0] == 5:
         hand_type = "StraightFlush"
         # crdRanks=crdRanks[:5] # five card rule makes no difference {:5] would be incorrect
     elif score[0] == 4:
@@ -157,7 +165,7 @@ if __name__ == '__main__':
     # CARDS.remove(CARDS[random.randint(0, len(CARDS)-1)])
     
     # print(CARDS)
-    hand: str = ["TC", "TH", "5D", "5H", "AH"]
+    hand: str = ["AS", "KS", "QS", "JS", "TS"]
     
     print(calc_score(hand))
     

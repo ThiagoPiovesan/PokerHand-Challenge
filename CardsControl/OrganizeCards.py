@@ -51,9 +51,6 @@ class OrganizeCards():
         # Return in ascendent order and invert it
         cards_score, card_ranks = zip(*sorted((cnt, rank) for rank, cnt in cards_count)[::-1])
         
-        print(cards_score)
-        print(card_ranks)
-        
         # So, we can use a simple pontuation, like these:
         # potential_threeofakind = cards_score[0] == 3
         # potential_twopair = cards_score == (2, 2, 1)
@@ -61,11 +58,3 @@ class OrganizeCards():
 
         return cards_score, card_ranks
 #================================================================================#
-    
-#================================================================================#
-    # def show_cards() -> str:
-    #     """Give the cards for the oponnents"""
-    #     raise NotImplementedError()
-    
-if __name__ == "__main__":
-    pass

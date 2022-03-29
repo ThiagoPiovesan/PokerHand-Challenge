@@ -4,9 +4,8 @@ Cards pack tests.
 #==================================================================================================#
 # Bibliotecas utilizadas:
 
-from ctypes import sizeof
 import unittest
-from CardsControl import OrganizeCards
+from OrganizeCards import OrganizeCards
 
 CARDS: str = "KS 2H 5C JD TD"
 
