@@ -2,9 +2,10 @@
 ---
 
 ## Objective:
-The main purpose of these project, is to compare two poker hands and print who is the winner. Very simple, right?
-No, actually we want to show the usability of the concepts below and apply then into a simple problem.
-So, let's get it started!
+→ The main purpose of these project, is to compare two poker hands and print who is the winner. Very simple, right?<br />
+
+→ No, actually we want to show the usability of the concepts below and apply then into a simple problem.<br />
+→ So, let's get it started!
 
 #### Concepts used:
 - TDD;
@@ -14,9 +15,9 @@ So, let's get it started!
 ---
 
 ## How does it work?
-→ Inside the PokerHand archive we have the file **PokerHand**, where is the principal class and where is the *compare_with* method that really compare the two hands. Of course, this class only do this specific job, compare the two hands e return who win.
-→ So, we have two more files e classes. CardsControl archive has the **OrganizeCards** file, which is responsible to get the entering information and extract it into a specific structure.
-→ Finally, we have the **EvaluateCards** program. This file gets the structure sent for **OrganizeCards** and make the punctuation and the combination of those cards (e.g. Flush, pair, two pair etc).
+→ Inside the PokerHand archive we have the file **PokerHand**, where is the principal class and where is the *compare_with* method that really compare the two hands. Of course, this class only do this specific job, compare the two hands e return who win.<br />
+→ So, we have two more files e classes. CardsControl archive has the **OrganizeCards** file, which is responsible to get the entering information and extract it into a specific structure.<br />
+→ Finally, we have the **EvaluateCards** program. This file gets the structure sent for **OrganizeCards** and make the punctuation and the combination of those cards (e.g. Flush, pair, two pair etc).<br />
 
 → So, to simplify the usability, we can use the main.py program on root folder. We just need to give "two poker hands" as input. Like this:
 
@@ -25,7 +26,7 @@ So, let's get it started!
 
 → Use the function compare_with and *voilà* we have which is the hand winner as result.<br />
 
-→ If you want to, in each folder has all the classes used and code written to use and adapt to your necessity. In addition, has the tests file, which has all the tests (TDD) develop for each class, to make sure they are working well.
+→ If you want to, in each folder has all the classes used and code written to use and adapt to your necessity. In addition, has the tests file, which has all the tests (TDD) develop for each class, to make sure they are working well.<br />
 
 → Or, below has all the theory used and implemented on this challenge, make your self free to read and understand it.<br />
 
