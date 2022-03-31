@@ -38,53 +38,53 @@ class EvaluateCards_and_ScoreGiven():
 #==================================================================================================#
     def give_score(self) -> tuple:
         """
-            Give the cards score recieved from the evaluation made before.
+            Give the cards score received from the evaluation made before.
         """
         print(self.evaluate_cards())
         
         if self.cards_score[0] == 5 and self.royal:
             hand_type = "RoyalFlush"
-            pontuation = 0
+            punctuation = 0
         elif self.cards_score[0] == 5:
             hand_type = "StraightFlush"
-            pontuation = 1
+            punctuation = 1
         elif self.cards_score[0] == 4:
             hand_type = "FoufOfAKind"
-            pontuation = 2
+            punctuation = 2
         elif self.cards_score[0:2] == (3, 2):
             hand_type = "FullHouse"
-            pontuation = 3
+            punctuation = 3
         elif self.cards_score[0:3] == (3, 1, 3):
             hand_type = "Flush"
             self.card_ranks = self.card_ranks[:5]
-            pontuation = 4
+            punctuation = 4
         elif self.cards_score[0:3] == (3, 1, 2):
             hand_type = "Straight"
             self.card_ranks = self.card_ranks[:5]
-            pontuation = 5
+            punctuation = 5
         elif self.cards_score[0] == 3:
             hand_type = "ThreeOfAKind"
             self.card_ranks = self.card_ranks[:3]
-            pontuation = 6
+            punctuation = 6
         elif self.cards_score[0:2] == (2, 2):
             hand_type = "TwoPair"
             self.card_ranks = self.card_ranks[:3]
-            pontuation = 7
+            punctuation = 7
         elif self.cards_score[0] == 2:
             hand_type = "Pair"
             self.card_ranks = self.card_ranks[:4]
-            pontuation = 8
+            punctuation = 8
         elif self.cards_score[0] == 1:
             hand_type = "HighCard"
             self.card_ranks = self.card_ranks[:5]
-            pontuation = 9
+            punctuation = 9
         else:
             raise Exception('Card Type error!')
         
-        return hand_type, pontuation, self.cards_score, self.card_ranks
+        return hand_type, punctuation, self.cards_score, self.card_ranks
 #==================================================================================================# 
     def evaluate_cards(self):
-        """Evaluate the hand and give the pontuation expect for those cards
+        """Evaluate the hand and give the punctuation expect for those cards
 
         """
     #==================================================================================================#    
@@ -93,23 +93,23 @@ class EvaluateCards_and_ScoreGiven():
             self.card_ranks = (self.card_ranks[0], self.card_ranks[1])
             self.cards_score = (3, 2)
     #==================================================================================================#        
-        elif self.cards_score[0:4] == (2, 2, 2, 1):                 # special case: convert three pair to two pair
-            self.cards_score = (2, 2, 1)                            # as three pair are not worth more than two pair
+        elif self.cards_score[0:4] == (2, 2, 2, 1):                             # special case: convert three pair to two pair
+            self.cards_score = (2, 2, 1)                                        # as three pair are not worth more than two pair
             sortedCrdRanks = sorted(self.card_ranks, reverse=True)  
             self.card_ranks = (sortedCrdRanks[0], sortedCrdRanks[1], sortedCrdRanks[2], sortedCrdRanks[3])
     #==================================================================================================#        
-        elif self.cards_score[0] == 4:                              # four of a kind
+        elif self.cards_score[0] == 4:                                          # four of a kind
             self.cards_score = (4,)
-            sortedCrdRanks = sorted(self.card_ranks, reverse=True)  # avoid for example 11,8,9
+            sortedCrdRanks = sorted(self.card_ranks, reverse=True)              # avoid for example 11,8,9
             self.card_ranks = (sortedCrdRanks[0], sortedCrdRanks[1])
     #==================================================================================================#        
-        elif len(self.cards_score) >= 5:                            # high card, flush, straight and straight flush
+        elif len(self.cards_score) >= 5:                                        # high card, flush, straight and straight flush
             # Straight ...
             
-            if 12 in self.card_ranks:                               # adjust if 5 high straight
+            if 12 in self.card_ranks:                                           # adjust if 5 high straight
                 self.card_ranks += (-1,)
                 
-            sortedCrdRanks = sorted(self.card_ranks, reverse=True)  # sort again as if pairs the first rank matches the pair
+            sortedCrdRanks = sorted(self.card_ranks, reverse=True)              # sort again as if pairs the first rank matches the pair
            
             for i in range(len(sortedCrdRanks) - 4):
                 straight = sortedCrdRanks[i] - sortedCrdRanks[i + 4] == 4
@@ -126,7 +126,7 @@ class EvaluateCards_and_ScoreGiven():
             flush = max(suits.count(s) for s in suits) >= 5
             if flush:
                 
-                for flushSuit in self.NAIPES:                               # Get the suit of the flush
+                for flushSuit in self.NAIPES:                                   # Get the suit of the flush
                     
                     if suits.count(flushSuit) >= 5:
                         break
@@ -136,10 +136,10 @@ class EvaluateCards_and_ScoreGiven():
                 
                 self.cards_score, self.card_ranks = zip(*sorted((cnt, rank) for rank, cnt in rcountsFlush)[::-1])
                 self.card_ranks = tuple(
-                    sorted(self.card_ranks, reverse=True))                  # Ignore original sorting where pairs had influence
+                    sorted(self.card_ranks, reverse=True))                      # Ignore original sorting where pairs had influence
 
                 # check for straight in flush
-                if 12 in self.card_ranks and -1 not in self.card_ranks:     # Adjust if 5 high straight
+                if 12 in self.card_ranks and -1 not in self.card_ranks:         # Adjust if 5 high straight
                     self.card_ranks += (-1,)
                     
                 for i in range(len(self.card_ranks) - 4):

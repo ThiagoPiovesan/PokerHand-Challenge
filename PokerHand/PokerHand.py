@@ -33,7 +33,7 @@ class PokerHand():
         self.hand = hand
         self.evaluation = EvaluateCards_and_ScoreGiven(self.hand)
         
-        self.hand_type, self.pontuation, self.cards_score, self.card_ranks = self.evaluation.give_score()
+        self.hand_type, self.punctuation, self.cards_score, self.card_ranks = self.evaluation.give_score()
         
 #==================================================================================================# 
     def compare_with(self, hand2) -> bool:
@@ -44,12 +44,12 @@ class PokerHand():
         
 #==================================================================================================#
     # If the hand One is better then the hand Two:   
-        if self.pontuation < hand2.pontuation:
+        if self.punctuation < hand2.punctuation:
             self.result = True
             return self.result
 #==================================================================================================#
     # If the hand One is better then the hand Two:  
-        elif self.pontuation > hand2.pontuation:
+        elif self.punctuation > hand2.punctuation:
    
             self.result = False
             return self.result
@@ -64,7 +64,7 @@ class PokerHand():
                 self.result = False
                 return self.result
 #==================================================================================================#   
-    # Imprimir itens:
+    # Print items:
     def __repr__(self) -> str:
         print("#==================================================================================================#")
         print("# The winner is: \n")
@@ -76,7 +76,7 @@ class PokerHand():
 
 #==================================================================================================#      
 if __name__ == '__main__':
-    # Teste:
+    # Test:
     hand1 = "TS JS QS KS AS"
     hand2 = "AC AH AS AS KS"
 
