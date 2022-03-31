@@ -7,7 +7,7 @@ Hand class tests.
 import unittest
 from EvaluateCards import EvaluateCards_and_ScoreGiven as ec
 
-CARDS: str = "KS 2H 5C JD TD"
+CARDS: str = "TS JS QS KS AS"
 
 class TestEvaluateCards(unittest.TestCase):
     

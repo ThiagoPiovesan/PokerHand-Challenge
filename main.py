@@ -169,9 +169,10 @@ if __name__ == '__main__':
     
     print(calc_score(hand))
     
-    hand2: str = "9C 9H 5C 5H AC"
+    hand2: str = "TS JS QS KS AS"
 
     hand2 = hand2.split(" ")
+    print(calc_score(hand2))
     
     card_ranks_original = '23456789TJQKA'
     original_suits = 'CDHS'

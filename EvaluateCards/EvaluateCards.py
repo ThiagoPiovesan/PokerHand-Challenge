@@ -32,17 +32,20 @@ class EvaluateCards_and_ScoreGiven():
         self.hand = hand
         self.organizer = OrganizeCards(self.hand)
         
-        self.cards_score, self.card_ranks = self.organizer.getCard_and_Rank()
+        self.cards_score, self.card_ranks, self.hand = self.organizer.getCard_and_Rank()
         
+        self.royal = False      # Constant False but when we have a Royal Flush
 #==================================================================================================#
-    def give_score(self) -> str:
+    def give_score(self) -> tuple:
         """
             Give the cards score recieved from the evaluation made before.
         """
-        if self.score[0] == 5 and self.royal:
+        print(self.evaluate_cards())
+        
+        if self.cards_score[0] == 5 and self.royal:
             hand_type = "RoyalFlush"
             pontuation = 0
-        elif self.score[0] == 5:
+        elif self.cards_score[0] == 5:
             hand_type = "StraightFlush"
             pontuation = 1
         elif self.cards_score[0] == 4:
@@ -78,7 +81,7 @@ class EvaluateCards_and_ScoreGiven():
         else:
             raise Exception('Card Type error!')
         
-        return hand_type, pontuation, self.cards_score
+        return hand_type, pontuation, self.cards_score, self.card_ranks
 #==================================================================================================# 
     def evaluate_cards(self):
         """Evaluate the hand and give the pontuation expect for those cards
@@ -118,7 +121,7 @@ class EvaluateCards_and_ScoreGiven():
                     break
         #==================================================================================================#            
             # Flush...
-            suits = [s for s in self.hand]
+            suits = [s for _, s in self.hand]
 
             flush = max(suits.count(s) for s in suits) >= 5
             if flush:
@@ -142,6 +145,7 @@ class EvaluateCards_and_ScoreGiven():
                 for i in range(len(self.card_ranks) - 4):
                 
                     straight = self.card_ranks[i] - self.card_ranks[i + 4] == 4
+                    
                     if straight and self.card_ranks[i] == 12:
                         self.royal = True
                         break

@@ -56,5 +56,5 @@ class OrganizeCards():
         # potential_twopair = cards_score == (2, 2, 1)
         # potential_pair = cards_score == (2, 1, 1, 1)
 
-        return cards_score, card_ranks
+        return cards_score, card_ranks, self.hand
 #================================================================================#

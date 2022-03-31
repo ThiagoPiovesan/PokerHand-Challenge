@@ -24,48 +24,67 @@ from EvaluateCards.EvaluateCards import EvaluateCards_and_ScoreGiven
 class PokerHand():
     # Win or Loss
     supported_options = {
-        'True': 'Win',
-        'False': 'Loss'
+        True  : 'WIN',
+        False : 'LOSS'
     }    
-    
     
     def __init__(self, hand) -> None:
         
         self.hand = hand
         self.evaluation = EvaluateCards_and_ScoreGiven(self.hand)
         
-        self.hand_type, self.pontuation, self.cards_score = self.evaluation.give_score()
+        self.hand_type, self.pontuation, self.cards_score, self.card_ranks = self.evaluation.give_score()
         
 #==================================================================================================# 
     def compare_with(self, hand2) -> bool:
         """Check between two poker's hand who is the winner"""
-    #==================================================================================================#
-    # Royal Flush:    
-        if self.hand_type == "RoyalFlush":
-            self.result = True
-            pass
-            
-        elif hand2.hand_type == "RoyalFlush":
-            self.result = False 
-            pass
+        # Save the second hand to print it later:
+        self.hand2 = hand2.hand
+        self.hand2_type = hand2.hand_type
         
-    #==================================================================================================#
-    # Straight Flush:    
-        elif self.hand_type == "StraightFlush":
+#==================================================================================================#
+    # If the hand One is better then the hand Two:   
+        if self.pontuation < hand2.pontuation:
             self.result = True
-            
-        elif hand2.hand_type == "StraightFlush":
+            return self.result
+#==================================================================================================#
+    # If the hand One is better then the hand Two:  
+        elif self.pontuation > hand2.pontuation:
+   
             self.result = False
-            
-    #==================================================================================================#
-    # Straight Flush:          
-        elif self.hand_type == "FoufOfAKind":
-            self.result = True
-        
-    
-#==================================================================================================# 
-
-#--------------------------------------------------------------------#       
+            return self.result
+#==================================================================================================#
+    # If the hand One is equal to the hand Two:
+    # In this case the higher card wins...    
+        else:
+            if self.card_ranks[:5][len(self.card_ranks[:5])-1] > hand2.card_ranks[:5][len(self.card_ranks[:5])-1]:
+                self.result = True
+                return self.result  
+            else:
+                self.result = False
+                return self.result
+#==================================================================================================#   
     # Imprimir itens:
-    def __repr__(self, hand2) -> str:
-        return f"Hand:('{self.hand}' {PokerHand.supported_options.get(self.result)})"
+    def __repr__(self) -> str:
+        print("#==================================================================================================#")
+        print("# The winner is: \n")
+        
+        if self.result:
+            return f"# The Hand 1:('{self.hand}') -> {PokerHand.supported_options.get(self.result)}, With a ('{self.hand_type}') \n# The Hand 2:('{self.hand2}') -> {PokerHand.supported_options.get(False)}, With a ('{self.hand2_type}')"
+        else:
+            return f"# The Hand 1:('{self.hand}') -> {PokerHand.supported_options.get(self.result)}, With a ('{self.hand_type}') \n# The Hand 2:('{self.hand2}') -> {PokerHand.supported_options.get(True)}, With a ('{self.hand2_type}')"
+
+#==================================================================================================#      
+if __name__ == '__main__':
+    # Teste:
+    hand1 = "TS JS QS KS AS"
+    hand2 = "AC AH AS AS KS"
+
+    hand1 = PokerHand(hand1)
+    hand2 = PokerHand(hand2)
+    
+    hand1.compare_with(hand2)
+    
+    print(hand1)
+    
+    
