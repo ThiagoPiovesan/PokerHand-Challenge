@@ -75,16 +75,4 @@ class PokerHand():
             return f"# The Hand 1:('{self.hand}') -> {PokerHand.supported_options.get(self.result)}, With a ('{self.hand_type}') \n# The Hand 2:('{self.hand2}') -> {PokerHand.supported_options.get(True)}, With a ('{self.hand2_type}')"
 
 #==================================================================================================#      
-if __name__ == '__main__':
-    # Test:
-    hand1 = "TS JS QS KS AS"
-    hand2 = "AC AH AS AS KS"
-
-    hand1 = PokerHand(hand1)
-    hand2 = PokerHand(hand2)
-    
-    hand1.compare_with(hand2)
-    
-    print(hand1)
-    
-    
+   
